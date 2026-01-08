@@ -116,7 +116,7 @@ export function createSearchRoutes(
           searchCount,
           bookingCount,
           searchToBookRatio: ratio === Infinity ? -1 : ratio,
-          requiredRatio: 1000, // This should come from config
+          requiredRatio: quotaManager.getRequiredRatio(name),
           circuitBreakerStatus: wrapper.circuitBreaker.getState(),
         });
       }

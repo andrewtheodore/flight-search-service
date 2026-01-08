@@ -66,6 +66,10 @@ export class QuotaManager {
     return Math.max(0, Math.min(1, 1 - currentRatio / (requiredRatio * 2)));
   }
 
+  getRequiredRatio(supplierId: string): number {
+    return this.requiredRatios.get(supplierId) || 0;
+  }
+
   resetCounts(supplierId: string): void {
     this.searchCounts.set(supplierId, 0);
     this.bookingCounts.set(supplierId, 0);
